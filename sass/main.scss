@@ -1,0 +1,184 @@
+:root {
+    --colorbtn: #fc5f05;
+    --radius: 10%;
+    --shadow: 1px 3px 5px 1px rgb(78, 78, 78);
+}
+
+$mario: "../img/mario.gif";
+$sonic: "../img/sonic2.gif";
+$ground: "../img/ground.png";
+$ground2: "../img/ground2.png";
+$bushes: "../img/bushes.png";
+$back: "../img/back.png";
+$backWidth: 512px;
+$backHeight: 432px;
+$bushesWidth: 508px;
+$bushesHeight: 79px;
+$groundWidth: 68px;
+$groundHeight: 22px;
+$marioWidth: 30px;
+$marioHeight: 54px;
+$sonicWidth: 30px;
+$sonicHeight: 25px;
+
+html {
+    box-sizing: border-box;
+    font-family: 'roboto';
+  }
+  
+  *, *:after, *:before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  
+  *::first-letter {
+    text-transform: capitalize;
+  }
+
+.paralax {
+    height: 230px;
+    background-image: url($mario),url($sonic), url($ground), url($bushes), url($back);
+    background-color: #f8e0b0;
+    background-repeat: no-repeat, no-repeat, repeat-x, repeat-x, repeat-x;
+    background-position: 
+        left 30% bottom $groundHeight,
+        left 0% bottom $groundHeight,
+        left 0 bottom 0,
+        left 0 bottom $groundHeight,
+        left 0 bottom 0;
+    animation: back 10s infinite linear;
+}
+
+@keyframes back {
+    0% {
+      background-position: 
+        left 30% bottom $groundHeight,
+        left -10% bottom $groundHeight, 
+        left 0 bottom 0,
+        left 0 bottom $groundHeight,
+        left 0 bottom 0;
+    }
+    50% {
+      background-position:
+        left 50% bottom $groundHeight,
+        left 60% bottom $groundHeight,
+        left (-($groundWidth * 12)) bottom 0px,
+        left (-($bushesWidth * 1)) bottom $groundHeight,
+        left (-($backWidth *0.5)) bottom 0px;
+    }
+    100% {
+      background-position:
+        left 30% bottom $groundHeight,
+        left 130% bottom $groundHeight,
+        left (-($groundWidth * 24)) bottom 0px,
+        left (-($bushesWidth * 2)) bottom $groundHeight,
+        left (-$backWidth) bottom 0px;
+    }
+  }
+
+nav {
+    display: flex;
+    height: max-content;
+}
+
+#divLogo {
+    display: flex;
+    align-items: flex-end;
+    margin: 2%;
+}
+
+#logoSite {
+    border-radius: var(--radius);
+    width: 20%;
+}
+.menuBurger{
+    display: flex;
+    align-items: center;
+    padding: 1%; }
+
+#burgerBtn {
+        border: none;
+    &>i {
+        font-size: 3rem;
+        color: var(--colorbtn);
+        background-color: #f8e0b0;       
+    }
+}
+.menu {
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    max-height: 0;
+    overflow: hidden; /* Cache le contenu lorsque max-height est 0 */
+    transition: max-height 1s ease-in-out;
+}
+ul.menu.openMenu {
+    max-height: 150px; /* Ajustez la hauteur maximale en fonction du contenu */
+    background-image: url($ground2);
+    background-repeat:repeat;
+    animation: backBurgerMenu 10s infinite linear;
+    margin: 0;
+}
+@keyframes backBurgerMenu {
+    0% {
+      background-position: 
+        left 0 bottom 0,
+    }
+    50% {
+      background-position:
+        left (-($groundWidth * 12)) bottom 0px,
+    }
+    100% {
+      background-position:
+        left (-($groundWidth * 24)) bottom 0px,
+    }
+  }
+  
+ul.menu.closeMenu {
+    max-height: 0; /* Replie le menu */
+    transition: max-height 0.5s ease-in-out; /* Le z-index change après 1s */
+    background-image: url($ground2);
+    background-repeat:repeat;
+    animation: backBurgerMenu 10s infinite linear;
+    margin: 0;
+}
+
+#suscribe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+input {
+    background-color: #a0cdff;
+    color: #000000;
+    border: none;
+    height: 20px;
+    margin: 0.3rem;
+}
+
+#headerForm{
+    display: flex;
+    flex-wrap: wrap;
+    &>form{
+        margin: 0 1%;
+    }
+}
+#btnStyle1{
+    height: 1.5rem;
+    padding: 5%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background-color: var(--colorbtn);
+    text-align: center;
+    box-sizing: inherit;
+}
+#btnStyle2 {
+    height: 1.5rem;
+    padding: 0 1%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background-color: var(--colorbtn);
+    text-align: center;
+    box-sizing: inherit;
+}

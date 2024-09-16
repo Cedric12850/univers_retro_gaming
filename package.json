@@ -1,0 +1,15 @@
+{
+  "name": "retro_game_blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass sass/main.scss src/css/styles.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.78.0"
+  }
+}
