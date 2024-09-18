@@ -1,6 +1,12 @@
 <?php
 session_start();
 require_once 'function.php';
+if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
+    $user = $_SESSION['user']['pseudo'];
+}else{
+    $user = 'visiteur';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +25,7 @@ require_once 'function.php';
     <section class="paralax">
         <nav>
             <div id="divLogo">
-                <img id="logoSite" src="./src/img/Logo_urg.jpg" alt="logo du site">               
+                <a href="index.php"><img id="logoSite" src="./src/img/Logo_urg.jpg" alt="logo du site"></a>               
             </div>
 
             <div class="menuBurger">
@@ -27,13 +33,17 @@ require_once 'function.php';
             </div>          
         </nav>
         <div id="headerForm">
+            
+                <?php if($user == 'visiteur') { ?>
             <form action="suscribe.php" method="get">
                 <input id="btnStyle1" type="submit" name="suscribe" value="S'inscrire">
             </form>
+            
 
             <form action="login.php" method="get">
                 <input id="btnStyle1" type="submit" value="Se connecter" name="login">
             </form>
+            <?php } ?>
 
             <form action="logout.php" method="get">
                 <input id="btnStyle1" type="submit" value="Déconnexion" name="logout">
@@ -42,8 +52,10 @@ require_once 'function.php';
     </section>
     <div>
             <ul class="menu" id="myMenu">
-                    <li><a href="#carte"> La carte</a></li>
-                    <li><a href="#aPropos">A propos</a></li>
-                    <li><a href="#reserver">Reserver</a></li>
+                    <li id="btnStyle2"><a href="console.php"> Console</a></li>
+                    <li id="btnStyle2"><a href="game.php">Game</a></li>
+                    <li id="btnStyle2"><a href="#contact">Contact</a></li>
             </div>
 </header>
+
+<main>

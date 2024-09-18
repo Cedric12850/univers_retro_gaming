@@ -20,8 +20,13 @@ html {
   text-transform: capitalize;
 }
 
+main {
+  padding: 2%;
+  background: linear-gradient(#f8e0b0, white);
+}
+
 .paralax {
-  height: 230px;
+  height: 400px;
   background-image: url("../img/mario.gif"), url("../img/sonic2.gif"), url("../img/ground.png"), url("../img/bushes.png"), url("../img/back.png");
   background-color: #f8e0b0;
   background-repeat: no-repeat, no-repeat, repeat-x, repeat-x, repeat-x;
@@ -53,7 +58,7 @@ nav {
 
 #logoSite {
   border-radius: var(--radius);
-  width: 20%;
+  width: 30%;
 }
 
 .menuBurger {
@@ -73,11 +78,18 @@ nav {
 
 .menu {
   width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   list-style: none;
   text-align: center;
   max-height: 0;
   overflow: hidden; /* Cache le contenu lorsque max-height est 0 */
   transition: max-height 1s ease-in-out;
+}
+.menu > li {
+  width: 20%;
+  margin: 2%;
 }
 
 ul.menu.openMenu {
@@ -148,6 +160,48 @@ input {
   background-color: var(--colorbtn);
   text-align: center;
   box-sizing: inherit;
+}
+
+img {
+  width: 100%;
+}
+
+#cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  border: 1px solid black;
+  align-items: center;
+  padding: 1%;
+  margin: 1% 0;
+}
+
+#addGame {
+  display: flex;
+  justify-content: center;
+}
+#addGame > form {
+  width: 80%;
+}
+
+.addGameForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.addGameForm > input {
+  padding: 1%;
+  width: 70%;
+}
+
+#pegi {
+  width: 10%;
 }
 
 /*# sourceMappingURL=styles.css.map */

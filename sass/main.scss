@@ -6,6 +6,9 @@
 
 $mario: "../img/mario.gif";
 $sonic: "../img/sonic2.gif";
+$superSonic: "../img/sonic.gif";
+$goku:"../img/goku.gif";
+$dog_duck_hunt: "../img/duck-hunt-dog.gif";
 $ground: "../img/ground.png";
 $ground2: "../img/ground2.png";
 $bushes: "../img/bushes.png";
@@ -36,8 +39,13 @@ html {
     text-transform: capitalize;
   }
 
+  main {
+    padding: 2%;
+    background: linear-gradient(#f8e0b0,white);
+  }
+
 .paralax {
-    height: 330px;
+    height:400px;
     background-image: url($mario),url($sonic), url($ground), url($bushes), url($back);
     background-color: #f8e0b0;
     background-repeat: no-repeat, no-repeat, repeat-x, repeat-x, repeat-x;
@@ -66,6 +74,8 @@ html {
         left (-($groundWidth * 12)) bottom 0px,
         left (-($bushesWidth * 1)) bottom $groundHeight,
         left (-($backWidth *0.5)) bottom 0px;
+
+    
     }
     100% {
       background-position:
@@ -90,7 +100,7 @@ nav {
 
 #logoSite {
     border-radius: var(--radius);
-    width: 20%;
+    width: 30%;
 }
 .menuBurger{
     display: flex;
@@ -107,11 +117,18 @@ nav {
 }
 .menu {
     width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     list-style: none;
     text-align: center;
     max-height: 0;
     overflow: hidden; /* Cache le contenu lorsque max-height est 0 */
     transition: max-height 1s ease-in-out;
+    &>li{
+        width: 20%;
+        margin: 2%;
+    }
 }
 ul.menu.openMenu {
     max-height: 150px; /* Ajustez la hauteur maximale en fonction du contenu */
@@ -181,4 +198,44 @@ input {
     background-color: var(--colorbtn);
     text-align: center;
     box-sizing: inherit;
+}
+
+img {
+    width: 100%;
+}
+
+#cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    border: 1px solid black;
+    align-items: center;
+    padding: 1%;
+    margin: 1% 0;
+}
+
+#addGame {
+    display: flex;
+    justify-content: center;
+    &> form {
+        width: 80%;
+    }
+}
+.addGameForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &>input {
+        padding: 1%;
+        width: 70%;
+    }
+}
+#pegi {
+    width: 10%;
 }

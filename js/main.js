@@ -14,3 +14,4 @@ btnMenu.addEventListener('click', () => {
         showMenu.classList.add('closeMenu')
     }
 })
+

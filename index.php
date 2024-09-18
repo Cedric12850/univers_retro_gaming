@@ -1,28 +1,31 @@
 <?php
 require_once 'partials/header.php';
 
-if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
-    $user = $_SESSION['user']['pseudo'];
-}else{
-    $user = 'visiteur';
-}
 
 ?>
 
-<p>Bienvenue <?php echo ucfirst($user) ?> sur le site</p>
-
     <h1>UNIVERS RETRO-GAMING</h1>
-    
+    <h4>Bienvenue <?php echo ucfirst($user) ?></h4>
+
+<?php if($user != 'visiteur') { ?>    
+    <div>  
+        <nav class="sideMenu">
+            <ul>
+                <?php if($user == 'super admin') { ?>
+                    <li><a href="admin.php">Page administrateur</li></a>
+                    <?php } ?>
+                <li><a href="console.php">Ajouter une console</li></a>
+                <li><a href="game.php">Ajouter un jeu</li></a>
+                
+                <li></li>
+            </ul>
+        </nav>   
+    </div>
+ <?php } ?>
+
+
 <div>
-    <nav class="sideMenu">
-        <ul>
-            <li><a href="addconsole.php">Ajouter une console</li></a>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </nav>
-</div>
+
 
 
 
