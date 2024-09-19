@@ -7,11 +7,12 @@ if(isset($_POST)&& !empty($_POST)) {
     $userArray = connectUser($pseudo);  
     $user = $userArray[0];  
         if($user) {
+            
             $registered_password = $user['password'];
             $isCredentialsOk = password_verify($password, $registered_password);
         if($isCredentialsOk){
             $_SESSION['user'] = [
-                'id' => $user['id'],
+                'id' => $user['user_id'],
                 'pseudo' => $user['pseudo']
             ];
             header('location:index.php');

@@ -1,6 +1,6 @@
 <?php
 require_once 'partials/header.php';
-require_once 'partials/function_game.php'
+require_once 'partials/function_game.php';
 ?>
 
 <?php if($user != 'visiteur') { ?>
@@ -31,21 +31,7 @@ require_once 'partials/function_game.php'
     </div>
 <?php } ?>
 
-<div id="cardContainer">
-    <?php foreach($games as $game)  {  ?>
-        <article class="card">
-            <h3><?php echo $game['game_titre'] ?></h3>
-            <button type="submit"  id="reset" name="deleteBtn" >reset </button>
-            <small><?php echo $game['game_year'] ?></small>
-            <small>Jeu ajouté par <?php echo $game['autor_id'] ?></small>
-            <img src="<?php echo $game['game_img']?>" alt="<?php echo $game['game_titre'] ?>">
-            <p><?php echo $game['game_description'] ?></p>
-            <small><img src="<?php echo $game['pegi_id'] ?>" alt="pegi"></small>
 
-        </article>
-
-    <?php } ?>
-</div>
 
 
 <?php require_once 'partials/footer.php' ?>

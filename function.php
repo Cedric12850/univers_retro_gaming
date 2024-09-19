@@ -42,7 +42,6 @@ function addUser ($firstName, $lastName, $pseudo, $birthdate, $adresse, $town, $
         }else {
             header('location:login.php');
         }  
-        die();
 }
 
 function addConsole($console_name, $console_year, $console_description, $console_img) {
@@ -58,9 +57,8 @@ function addConsole($console_name, $console_year, $console_description, $console
         if ($count == 0) {
             echo 'Nous ne sommes pas parvenus à ajouter la console';
         }else {
-            echo 'Merci pour votre ajout';
+            header('location:console.php');
         }
-        die();
 }
 
 function getAllConsole() {
@@ -72,9 +70,9 @@ function getAllConsole() {
     return $results;
 }
 
-function insertGameIntoDB($game_titre, $game_year, $game_description, $game_img, $pegi, $dateArticle, $autorArticle) {
+function insertGameIntoDB($game_titre, $game_year, $game_description, $game_img, $pegi, $dateArticle, $autor_id) { 
     $dbh= dbconnect();
-    $query= "INSERT INTO game(game_titre, game_year, game_description, game_img, pegi_id, date_article, autor_article) VALUES (:game_titre, :game_year, :game_description, :game_img, :pegi, :dateArticle, :autorArticle)";
+    $query= "INSERT INTO game(game_titre, game_year, game_description, game_img, pegi_id, date_article, autor_id) VALUES (:game_titre, :game_year, :game_description, :game_img, :pegi, :dateArticle, :autor_id)";
     $stmt = $dbh->prepare($query);
     $stmt->bindParam(':game_titre', $game_titre);
     $stmt->bindParam(':game_year', $game_year);
@@ -82,10 +80,10 @@ function insertGameIntoDB($game_titre, $game_year, $game_description, $game_img,
     $stmt->bindParam(':game_img', $game_img);
     $stmt->bindParam(':pegi', $pegi);
     $stmt->bindParam(':dateArticle', $dateArticle);
-    $stmt->bindParam(':autorArticle', $autorArticle);
+    $stmt->bindParam(':autor_id', $autor_id);
     $stmt->execute();
     $idGame = $dbh->lastInsertId();
-        die();
+        
         return $idGame;
 }
 
@@ -97,21 +95,22 @@ function addPegiToGame($pegi_id) {
     $stmt->execute();
 }
 
-//fonction pour ajouter l'id users dans l'id_autor de game
-// function addAutorIntoGame($user_id) {
-//     $dbh = dbconnect();
-//     $query = "INSERT INTO game(autor_id) VALUES (:autor_id)";
-//     $stmt = $dbh->prepare($query);
-//     $stmt->bindParam(':autor_id', $user_id);
-//     $stmt->execute();    
-// }
+//fonction pour remplacer l'id_autor de game par le pseudo de l'auteur
+function replaceIdAutoByPseudo() {
+    $dbh = dbconnect();
+    $query = "SELECT users.pseudo, game.autor_id
+        FROM users
+        JOIN game ON users.user_id = game.autor_id;";
+    $stmt = $dbh->prepare($query);
+    $stmt->execute();    
+}
 
 function addGenreToGame($genreId, $gameId){
     $dbh = dbconnect();
-    $query = "INSERT INTO genre_game(tableInt_genre_id, tableInt_game_id) VALUES (:tableInt_genre_id, :tableInt_game_id)";
+    $query = "INSERT INTO game_genre(tableInt_genre_id, tableInt_game_genre_id) VALUES (:tableInt_genre_id, :tableInt_game_genre_id)";
     $stmt = $dbh->prepare($query);
     $stmt->bindParam(':tableInt_genre_id', $genreId);
-    $stmt->bindParam(':tableInt_game_id', $gameId);
+    $stmt->bindParam(':tableInt_game_genre_id', $gameId);
     $stmt->execute();
 }
 
@@ -161,6 +160,17 @@ function deleteThisGame($game_titre) {
     $stmt-> execute();
 }
 
-//Afficher les jeux que l'utilisateur à ajouter
+//Afficher les jeux par utilisateurs
+function showGameByUser($id) {
+    $dbh = dbconnect();
+    $query = "SELECT * 
+        FROM game
+        WHERE autor_id = :id";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results;
+}
 
 ?>

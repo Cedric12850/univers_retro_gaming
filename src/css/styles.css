@@ -45,7 +45,7 @@ main {
     background-position: left 30% bottom 22px, left 130% bottom 22px, left -1632px bottom 0px, left -1016px bottom 22px, left -512px bottom 0px;
   }
 }
-nav {
+#menuHeader {
   display: flex;
   height: max-content;
 }
@@ -93,7 +93,7 @@ nav {
 }
 
 ul.menu.openMenu {
-  max-height: 150px; /* Ajustez la hauteur maximale en fonction du contenu */
+  max-height: max-content; /* Ajustez la hauteur maximale en fonction du contenu */
   background-image: url("../img/ground2.png");
   background-repeat: repeat;
   animation: backBurgerMenu 10s infinite linear;
@@ -170,6 +170,15 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+a {
+  color: black;
+  font-style: none;
+  text-decoration: none;
+}
+a:hover {
+  background-color: #a0cdff;
 }
 
 .card {
