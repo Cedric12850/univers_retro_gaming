@@ -19,7 +19,9 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Univers RetroGaming</title>
 
-    
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./src/css/styles.css">
 
@@ -30,7 +32,7 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
     <section class="paralax">
         <nav id="menuHeader">
             <div id="divLogo">
-                <a href="index.php"><img id="logoSite" src="./src/img/Logo_urg.jpg" alt="logo du site"></a>               
+                <a href="index.php"><img id="logoSite" src="./src/img/Logo_urg.jpg" alt="logo du site"></a>             
             </div>
 
             <div class="menuBurger">
@@ -54,29 +56,39 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
                 <input id="btnStyle1" type="submit" value="Déconnexion" name="logout">
             </form>
         </div>
-        <h4>Bienvenue <?php echo ucfirst($user) ?></h4>
+        
     </section>
     <div>
             <ul class="menu" id="myMenu">
-                    <li id="btnStyle2"><a href="allCardsConsole.php"> Console</a></li>
                     <li id="btnStyle2"><a href="index.php">Game</a></li>
-                    <li id="btnStyle2"><a href="#contact">Contact</a></li>
+                    <li id="btnStyle2"><a href="allCardsConsole.php"> Console</a></li>
+                    <li id="btnStyle2"><a href="#mon_compte">Mon compte</a></li>
             </div>
 </header>
 
 <main>
-    <h1>UNIVERS RETRO-GAMING</h1>
-        <?php if($user != 'visiteur') { ?>    
-            <div>  
-                <nav class="sideMenu">
-                    <ul>
-                        <?php if($user == 'super admin') { ?>
-                            <li><a href="admin.php">Page administrateur</li></a>
+    <div>
+        <h4>Bienvenue <?php echo ucfirst($user) ?></h4>
+    </div>
+    <?php if($user != 'visiteur') { ?>    
+        <div>
+            <nav></nav>
+                <ul id="slide-out" class="sidenav">
+                        
+                    <li>
+                        <div class="user-view">
+                            <h4><?php echo ucfirst($user) ?></h4>
+                            <a href="#mon_compte">Mon compte</a>
+                            <?php if($user == 'super admin') { ?>
+                                <li><a href="admin.php">Page administrateur</li></a>
                             <?php } ?>
-                        <li><a href="console.php">Ajouter une console</li></a>
-                        <li><a href="addGame.php">Ajouter un jeu</li></a>               
-                        <li></li>
-                    </ul>
-                </nav>   
-            </div>
-        <?php } ?>
+                    <li><a href="console.php">Ajouter une console</li></a>
+                    <li><a href="addGame.php">Ajouter un jeu</li></a>
+                </div> </li>                               
+                </ul>                       
+                <a href="#" data-target="slide-out"  id="btnStyle2" class="sidenav-trigger"><i class="material-icons">Ajouter un article</i></a>                        
+            </div>            
+    <?php } ?>
+
+    <h1>UNIVERS RETRO-GAMING</h1>
+   

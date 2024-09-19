@@ -1,14 +1,13 @@
 <?php
 
 if (isset($_POST)&& !empty($_POST)) {
-
     if(!(isset($_SESSION['user']))) {
         echo 'Veuillez vous connecter pour envoyer votre ajout de console';
             header ('location:login.php');
         }else{
-            
-        //upload de l'image
+    //     //upload de l'image
         if(isset($_FILES['game_img'])&& $_FILES['game_img']['error']){
+            $uploadDirectory = "/";
             $tmp_name = $_FILES['game_img']['tmp_name'];
             $allowed = array("jpg"=>"image/jpg", "jpeg"=>"image/jpeg", "gif" => "image/gif", "png" => "image/png");
             $name = $_FILES['game_img']['name'];
@@ -24,10 +23,10 @@ if (isset($_POST)&& !empty($_POST)) {
         //Vérifie le type MIME du fichier
         if(in_array($name, $allowed)) { 
             //si le fichier existe déja
-            if(file_exists("./src/upload/".$_FILES['game_img']['name'])){
+            if(file_exists($uploadDirectory.$_FILES['game_img']['name'])){
                 echo $_FILES ['game_img']['name']. "existe déjà.";
             }else {
-                move_uploaded_file($_FILES ['game_img']['tmp_name'], './src/upload/'.$_FILES['game_img']['name'] );
+                move_uploaded_file($_FILES ['game_img']['tmp_name'], $uploadDirectory.$_FILES['game_img']['name'] );
                 echo "votre fichier a été télécharger";
             }
         }else{
@@ -40,10 +39,10 @@ if (isset($_POST)&& !empty($_POST)) {
         $game_titre = $_POST['game_titre'];
         $game_year = $_POST['game_year'];
         $game_description = $_POST['game_description'];
-        $game_img = './src/upload/'.$_FILES["game_img"]["name"];
+        $game_img = $uploadDirectory.$_FILES["game_img"]["name"];
         $pegi = $_POST['addPegiIntoGame'];
-        $autor_id = $user['id'];   //En atttente de réparation pour afficher le nom de l'auteur
-       var_dump($autor_id);
+        $autor_id = $user_id;   //En atttente de réparation pour afficher le nom de l'auteur
+       
        
         //$idInsertGame récupère l'id de 'linsertGameIntoDB pour l'utiliser ensuite dans l'ajout du genre
         $idInsertGame = insertGameIntoDB(

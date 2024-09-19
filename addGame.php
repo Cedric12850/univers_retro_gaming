@@ -16,13 +16,20 @@ require_once 'partials/function_game.php';
             </div>
             <div>
                 <?php foreach($genres as $genre)  {  ?>
-                    <input type="checkbox" name="addGenresIntoGame" id=""> <?php echo ucfirst($genre['genre_name']) ?>
+                    <label >
+                    <input type="checkbox" name="addGenresIntoGame" id="checkboxBtn"/> <span><?php echo ucfirst($genre['genre_name']) ?></span>
+                    </label>
                 <?php } ?>
             </div>
             <div id="radioBtn">
                 <?php foreach($pegis as $pegi)  {  ?>
-                    <input type="radio" name="addPegiIntoGame" id="" value="<?php echo $pegi["pegi_id"] ?>" >
-                    <label for="<?php echo $pegi["pegi_id"] ?>"><img src="<?php echo ($pegi['pegi_img']) ?>" alt="" id="pegi"></label>
+                    <label > 
+                        <!-- for="<?php echo $pegi["pegi_id"] ?>" -->
+                    <input class="with-gap" type="radio" name="addPegiIntoGame" id="" value="<?php echo $pegi["pegi_id"] ?>" >
+                        <span>
+                        <img src="<?php echo ($pegi['pegi_img']) ?>" alt="" id="pegi">
+                        </span>
+                    </label>
                     <?php } ?>
             </div>
                 <input id="btnStyle2" type="submit" value="Envoyer">

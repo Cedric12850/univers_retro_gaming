@@ -45,20 +45,31 @@ main {
     background-position: left 30% bottom 22px, left 130% bottom 22px, left -1632px bottom 0px, left -1016px bottom 22px, left -512px bottom 0px;
   }
 }
-#menuHeader {
+nav {
   display: flex;
   height: max-content;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.sidenav {
+  background-color: #f8e0b0;
+}
+
+#menuHeader {
+  justify-content: space-between;
 }
 
 #divLogo {
   display: flex;
   align-items: flex-end;
   margin: 2%;
+  width: 15%;
 }
 
 #logoSite {
   border-radius: var(--radius);
-  width: 30%;
+  width: 100%;
 }
 
 .menuBurger {
@@ -74,6 +85,7 @@ main {
   font-size: 3rem;
   color: var(--colorbtn);
   background-color: #f8e0b0;
+  cursor: pointer;
 }
 
 .menu {
@@ -150,6 +162,7 @@ input {
   background-color: var(--colorbtn);
   text-align: center;
   box-sizing: inherit;
+  cursor: pointer;
 }
 
 #btnStyle2 {
@@ -160,6 +173,7 @@ input {
   background-color: var(--colorbtn);
   text-align: center;
   box-sizing: inherit;
+  cursor: pointer;
 }
 
 img {
@@ -189,6 +203,7 @@ a:hover {
   align-items: center;
   padding: 1%;
   margin: 1% 0;
+  background-color: url(.src/img/backgroung_card.jpg) !important;
 }
 
 #addGame {

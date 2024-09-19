@@ -4,17 +4,9 @@ $games = getAllGame();
 
 ?>
 
-    
-    
-    
-
-
 
 
  <?php require_once 'partials/allCardsGame.php' ?>
-
-
-
 
 
 <?php require_once 'partials/footer.php' ?>

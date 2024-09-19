@@ -124,9 +124,12 @@ function addGenreToGame($genreId, $gameId){
 
 // }
 
+
+//récupère tous les jeux avec les users
 function getAllGame () {
     $dbh = dbconnect();
-    $query = "SELECT * FROM game";
+    //$query = "SELECT * FROM game";
+    $query = "select * from game inner join users on autor_id = user_id";
     $stmt = $dbh->prepare($query);
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
