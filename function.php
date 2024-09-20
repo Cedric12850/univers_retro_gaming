@@ -176,4 +176,16 @@ function showGameByUser($id) {
     return $results;
 }
 
+//afficher les jeux par id
+function showGameByid($id) {
+    $dbh = dbconnect();
+    $query = "SELECT * 
+        FROM game
+        WHERE game_id = :id";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results;
+}
 ?>

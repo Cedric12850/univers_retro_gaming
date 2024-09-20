@@ -1,13 +1,14 @@
 @charset "UTF-8";
 :root {
-  --colorbtn: #fc5f05;
+  --colorbtn: #ffc04a;
   --radius: 10%;
-  --shadow: 1px 3px 5px 1px rgb(78, 78, 78);
+  --shadow: 1px 1px 3px 1px rgb(212, 212, 212);
 }
 
 html {
   box-sizing: border-box;
   font-family: "roboto";
+  background: linear-gradient(#000000, rgb(39, 39, 39));
 }
 
 *, *:after, *:before {
@@ -18,11 +19,6 @@ html {
 
 *::first-letter {
   text-transform: capitalize;
-}
-
-main {
-  padding: 2%;
-  background: linear-gradient(#f8e0b0, white);
 }
 
 .paralax {
@@ -80,11 +76,11 @@ nav {
 
 #burgerBtn {
   border: none;
+  background-color: transparent;
 }
 #burgerBtn > i {
   font-size: 3rem;
   color: var(--colorbtn);
-  background-color: #f8e0b0;
   cursor: pointer;
 }
 
@@ -154,8 +150,24 @@ input {
   margin: 0 1%;
 }
 
+/*___________________________________________________________________________________________________________________________________________*/
+main {
+  padding: 2%;
+  background: linear-gradient(#000000, rgb(39, 39, 39));
+}
+
+h1 {
+  font-size: 2rem;
+  color: white;
+}
+
+h4 {
+  color: white;
+  font-size: 1rem;
+}
+
 #btnStyle1 {
-  height: 1.5rem;
+  height: auto;
   padding: 5%;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -166,7 +178,7 @@ input {
 }
 
 #btnStyle2 {
-  height: 1.5rem;
+  height: auto;
   padding: 0 1%;
   border-radius: var(--radius);
   box-shadow: var(--shadow);

@@ -66,7 +66,7 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
             </div>
 </header>
 
-<main>
+<main class="container">
     <div>
         <h4>Bienvenue <?php echo ucfirst($user) ?></h4>
     </div>

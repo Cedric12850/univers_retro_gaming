@@ -1,7 +1,7 @@
 :root {
-    --colorbtn: #fc5f05;
+    --colorbtn: #ffc04a;
     --radius: 10%;
-    --shadow: 1px 3px 5px 1px rgb(78, 78, 78);
+    --shadow: 1px 1px 3px 1px rgb(212, 212, 212);
 }
 
 $mario: "../img/mario.gif";
@@ -27,6 +27,7 @@ $sonicHeight: 25px;
 html {
     box-sizing: border-box;
     font-family: 'roboto';
+    background: linear-gradient(#000000, rgb(39, 39, 39));
   }
   
   *, *:after, *:before {
@@ -39,10 +40,6 @@ html {
     text-transform: capitalize;
   }
 
-  main {
-    padding: 2%;
-    background: linear-gradient(#f8e0b0,white);
-  }
 
 .paralax {
     height:400px;
@@ -118,10 +115,11 @@ nav {
 
 #burgerBtn {
         border: none;
+        background-color: transparent ;
     &>i {
         font-size: 3rem;
         color: var(--colorbtn);
-        background-color: #f8e0b0;
+        
         cursor: pointer;    
     }
 }
@@ -191,8 +189,25 @@ input {
         margin: 0 1%;
     }
 }
+
+/*___________________________________________________________________________________________________________________________________________*/
+
+main{
+    padding: 2%;
+    background: linear-gradient(#000000, rgb(39, 39, 39));
+}
+
+h1{
+    font-size: 2rem; 
+    color: white;
+}
+h4 {
+    color: white;
+    font-size: 1rem;
+}
+
 #btnStyle1{
-    height: 1.5rem;
+    height: auto;
     padding: 5%;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -202,7 +217,7 @@ input {
     cursor: pointer;
 }
 #btnStyle2 {
-    height: 1.5rem;
+    height:auto;
     padding: 0 1%;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
@@ -231,6 +246,7 @@ a {
         background-color: #a0cdff;
     }
 }
+
 .card {
     display: flex;
     flex-direction: column;
@@ -240,8 +256,8 @@ a {
     padding: 1%;
     margin: 1% 0;
     background-color: url(.src/img/backgroung_card.jpg) !important ;
-    
 }
+
 
 #addGame {
     display: flex;

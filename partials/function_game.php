@@ -7,7 +7,7 @@ if (isset($_POST)&& !empty($_POST)) {
         }else{
     //     //upload de l'image
         if(isset($_FILES['game_img'])&& $_FILES['game_img']['error']){
-            $uploadDirectory = "/";
+            $uploadDirectory = "/src/img/";
             $tmp_name = $_FILES['game_img']['tmp_name'];
             $allowed = array("jpg"=>"image/jpg", "jpeg"=>"image/jpeg", "gif" => "image/gif", "png" => "image/png");
             $name = $_FILES['game_img']['name'];
