@@ -14,13 +14,13 @@ $gameById = $gamesById[0];
    
     <article class="card">
 
-        <img src="<?php echo $gameById['game_img']?>" alt="<?php echo $gameById['game_titre'] ?>">
+        <img id="cardImg" src="<?php echo $gameById['game_img']?>" alt="<?php echo $gameById['game_titre'] ?>">
         <h3><?php echo $gameById['game_titre'] ?></h3>
         <div id="card_btnUser">
             <small><?php echo $gameById['game_year'] ?></small>
-            <?php if( ($user != 'visiteur')&& ($user_id == $gameById['autor_id'])){ ?>    
-                    <button type="submit"  id="reset btnStyle2" name="deleteBtn" >reset </button>
-                <?php } ?>
+            <?php if( ($user != 'visiteur')&& ($user_id == $gameById['autor_id'])){ ?>  
+                <button  type="submit"  id="reset btnStyle2" name="deleteBtn" >reset </button>
+            <?php } ?>
         </div>
         <div id="card_details">
             <small>Jeu ajouté par <?php echo $gameById['autor_id'] ?></a> le <?php echo $gameById['date_article'] ?></small>
@@ -34,10 +34,10 @@ $gameById = $gamesById[0];
                 <small>Pour commenter, vous devez être inscrit.</small>
             <?php } ?>
             <?php if($user != 'visiteur') { ?> 
-                <button class="waves-effect waves-light" id="btnStyle2">Ajouter un commentaire</button>
+                <button class="btn waves-effect waves-light" >Ajouter un commentaire</button>
                 <form action="" class="formclose">
                     <input type="text" name="user_comment" id="">
-                    <input class="waves-effect waves-light" id="btnStyle2" type="submit" value="Envoyer">
+                    <input class="btn waves-effect waves-light"  type="submit" value="Envoyer">
                 </form>
             <?php } ?>
             <p>Commentaires: </p>

@@ -28,14 +28,38 @@ require_once 'partials/header.php';
 ?>
 
 <?php if($user != 'visiteur') { ?>
-    <div>
+    <div class="row">
         <form action="" method="post">
-            <p>Nom de la console de jeu: <input type="text" name="console_name"></p>
-            <p>Année de sortie: <input type="text" name="console_year"> </p>
-            <p>Description: <input type="text" name="console_description"></p>
-            <p>Lien vers image: <input type="text" name="console_img" id=""></p>
-            <p>ou <input type="file" name="console_img" id=""> </p>
-            <input id="" type="submit" value="Envoyer">
+            <div class="row">
+                <div class="input-field col s8">
+                    <input type="text" name="console_name"class="validate">
+                    <label for="console_name">Nom de la console:</label>
+                </div> 
+
+                <div class="input-field col s4">
+                    <input type="text" name="console_year">
+                    <label for="console_year">Année de sortie:</label>
+                </div> 
+            </div>
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="console_description">
+                    <label for="console_description">Description:</label>
+                </div> 
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    Envoyer une image (jpeg ou png):</br> 
+                    <input type="file" name="console_img" >
+                </div>
+            </div>   
+            <div class="row">
+                <div class="offset-s5 col s4">
+                    <input class="btn waves-effect waves-light" type="submit" value="Envoyer">
+                </div>
+            </div> 
         </form>
     </div>
 <?php } ?>

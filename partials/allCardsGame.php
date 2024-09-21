@@ -4,9 +4,10 @@
 <div id="cardContainer">
     <?php foreach($games as $game)  {  ?>
         <article class="card">
-        <img src="<?php echo $game['game_img']?>" alt="<?php echo $game['game_titre'] ?>">
-
-        <h3><a href="cardGame.php?id=<?php echo $game['game_id'] ?>"><?php echo $game['game_titre'] ?></h3></a>
+            <a href="cardGame.php?id=<?php echo $game['game_id'] ?>">
+                <img id="cardImg" src="<?php echo $game['game_img']?>" alt="<?php echo $game['game_titre'] ?>">
+                <h3><?php echo $game['game_titre'] ?></h3>
+            </a>
         <div>
             <small><?php echo $game['game_year'] ?></small>
             <?php if(($user != 'visiteur')&& ($user_id == $game['user_id'])){ ?>    

@@ -31,20 +31,66 @@ require_once 'partials/header.php';
 
 <div>
     <h2>Inscrivez-vous.</h2>
-    <form id="suscribe" action="" method="post">
-        <p>Nom: <input type="text" name="firstName"></p>
-        <p>Prénom: <input type="text" name="lastName"></p>
-        <p>Pseudo: <input type="text" name="pseudo"></p>
-        <p>Email: <input type="email" name="email"></p>
-        <p>Date de naissance: <input type="date" name="birthday"></p>
-        <p>Adresse: <input type="text" name="adresse"></p>
-        <p>Ville: <input type="text" name="town"> </p>
-        <p>Code postal: <input type="text" name="town_cp"></p>
-        <p>Mot de passe: <input type="password" name="password"></p>
-        <input id="btnStyle2" type="submit" value="Valider">
+    <div class="row">
+        <form class="col s12" id="suscribe" action="" method="post">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input class="validate" type="text" name="firstName">
+                    <label for="firstName">Nom:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input class="validate" type="text" name="lastName">
+                    <label for="lastName">Prénom:</label>
+                </div>
+            </div>
 
-    </form>
-    
+            <div class="row">
+                <div class="input-field col s6">
+                    <input class="validate" type="text" name="pseudo">
+                    <label for="pseudo">Pseudo:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="birthday" class="validate datepicker">
+                    <label for="birthday">Date de naissance:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="email" name="email" class="validate">
+                    <label for="email">Email:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="adresse" class="validate">
+                    <label for="adresse">Adresse:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" name="town" class="validate">    
+                    <label for="town">Ville:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="town_cp" class="validate">
+                    <label for="town_cp">Code postal:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="password" name="password" class="validate">
+                    <label for="password">Mot de passe:</label>
+                </div>
+            </div>
+            
+            <input class="btn waves-effect waves-light" type="submit" value="Valider">
+
+        </form>
+    </div>
 </div>
 
 

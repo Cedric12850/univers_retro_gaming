@@ -39,30 +39,30 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
                 <button id="burgerBtn"><i class="fa-solid fa-gamepad"></i></button>
             </div>          
         </nav>
-        <div id="headerForm">
+        <div class="row" id="headerForm">
             
                 <?php if($user == 'visiteur') { ?>
             <form action="suscribe.php" method="get">
-                <input id="btnStyle1" type="submit" name="suscribe" value="S'inscrire">
+                <input class="btn  pulse waves-effect waves-light" type="submit" name="suscribe" value="S'inscrire">
             </form>
             
 
             <form action="login.php" method="get">
-                <input id="btnStyle1" type="submit" value="Se connecter" name="login">
+                <input class="btn waves-effect waves-light" type="submit" value="Se connecter" name="login">
             </form>
             <?php } ?>
 
             <form action="logout.php" method="get">
-                <input id="btnStyle1" type="submit" value="Déconnexion" name="logout">
+                <input class="btn waves-effect waves-light"  type="submit" value="Déconnexion" name="logout">
             </form>
         </div>
         
     </section>
     <div>
             <ul class="menu" id="myMenu">
-                    <li id="btnStyle2"><a href="index.php">Game</a></li>
-                    <li id="btnStyle2"><a href="allCardsConsole.php"> Console</a></li>
-                    <li id="btnStyle2"><a href="#mon_compte">Mon compte</a></li>
+                    <li class="btn waves-effect waves-light"><a href="index.php">Game</a></li>
+                    <li class="btn waves-effect waves-light"><a href="allCardsConsole.php"> Console</a></li>
+                    <li class="btn waves-effect waves-light"><a href="#mon_compte">Mon compte</a></li>
             </div>
 </header>
 
@@ -77,7 +77,7 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
                         
                     <li>
                         <div class="user-view">
-                            <h4><?php echo ucfirst($user) ?></h4>
+                            <h3><?php echo ucfirst($user) ?></h3>
                             <a href="#mon_compte">Mon compte</a>
                             <?php if($user == 'super admin') { ?>
                                 <li><a href="admin.php">Page administrateur</li></a>
@@ -86,7 +86,7 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
                     <li><a href="addGame.php">Ajouter un jeu</li></a>
                 </div> </li>                               
                 </ul>                       
-                <a href="#" data-target="slide-out"  id="btnStyle2" class="sidenav-trigger"><i class="material-icons">Ajouter un article</i></a>                        
+                <a href="#" data-target="slide-out"  class="btn waves-effect waves-light sidenav-trigger"><i class="material-icons">Ajouter un article</i></a>                        
             </div>            
     <?php } ?>
 

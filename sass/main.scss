@@ -2,8 +2,10 @@
     --colorbtn: #ffc04a;
     --radius: 10%;
     --shadow: 1px 1px 3px 1px rgb(212, 212, 212);
+    
 }
 
+$background: "../img/background.png";
 $mario: "../img/mario.gif";
 $sonic: "../img/sonic2.gif";
 $superSonic: "../img/sonic.gif";
@@ -27,7 +29,8 @@ $sonicHeight: 25px;
 html {
     box-sizing: border-box;
     font-family: 'roboto';
-    background: linear-gradient(#000000, rgb(39, 39, 39));
+    background-image: url($background);
+    background-size: contain;
   }
   
   *, *:after, *:before {
@@ -194,56 +197,59 @@ input {
 
 main{
     padding: 2%;
-    background: linear-gradient(#000000, rgb(39, 39, 39));
+    background: opacity(0.5);
 }
-
+form, input {
+    color: white;
+}
 h1{
     font-size: 2rem; 
     color: white;
+}
+h2 {
+    color: white;
+    font-size: 1.5rem;
 }
 h4 {
     color: white;
     font-size: 1rem;
 }
-
-#btnStyle1{
-    height: auto;
-    padding: 5%;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    background-color: var(--colorbtn);
-    text-align: center;
-    box-sizing: inherit;
-    cursor: pointer;
-}
-#btnStyle2 {
-    height:auto;
-    padding: 0 1%;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    background-color: var(--colorbtn);
-    text-align: center;
-    box-sizing: inherit;
-    cursor: pointer;
+small {
+    font-size: 0.85rem;
 }
 
-img {
-    width: 100%;
+#marginTop{
+    margin-top: 3%;
 }
+// #btnStyle2 {
+//     height:auto;
+//     padding: 0 1%;
+//     border-radius: var(--radius);
+//     box-shadow: var(--shadow);
+//     background-color: var(--colorbtn);
+//     text-align: center;
+//     box-sizing: inherit;
+//     cursor: pointer;
+//     color: white;
+// }
+
 
 #cardContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+}
+
+#cardImg {
+    width: 100%;
 }
 
 a {
-    color: black;
+    color: rgb(255, 255, 255);
     font-style: none;
     text-decoration: none;
     &:hover {
-        background-color: #a0cdff;
+        background-color: #f8e0b0;
     }
 }
 
@@ -255,28 +261,49 @@ a {
     align-items: center;
     padding: 1%;
     margin: 1% 0;
-    background-color: url(.src/img/backgroung_card.jpg) !important ;
+    background: linear-gradient(var(--colorbtn),#f8e0b0);
+}
+
+#card_btnUser {
+    width: 100%;
+    padding: 0 3% ;
+    display: flex;
+    justify-content: space-between;
 }
 
 
-#addGame {
-    display: flex;
-    justify-content: center;
-    &> form {
-        width: 80%;
-    }
-}
-.addGameForm {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    &>input {
-        padding: 1%;
-        width: 70%;
-    }
-}
+// #addGame {
+//     display: flex;
+//     justify-content: center;
+//     &> form {
+//         width: 80%;
+//     }
+// }
+// .addGameForm {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     &>input {
+//         padding: 1%;
+//         width: 70%;
+//     }
+// }
 #pegi {
-    width: 10%;
+    width: 50%;
 }
 
 
+/*Annumation materialize*/
+.btn {
+    background-color: var(--colorbtn) !important;
+    padding: 1px !important;   
+}
+button.datepicker-day-button{
+    color: black !important;
+}
+div.datepicker-date-display {
+    background-color: var(--colorbtn);
+}
+.input-field>label{
+    color: white;
+}

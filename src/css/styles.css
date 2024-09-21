@@ -8,7 +8,8 @@
 html {
   box-sizing: border-box;
   font-family: "roboto";
-  background: linear-gradient(#000000, rgb(39, 39, 39));
+  background-image: url("../img/background.png");
+  background-size: contain;
 }
 
 *, *:after, *:before {
@@ -153,7 +154,11 @@ input {
 /*___________________________________________________________________________________________________________________________________________*/
 main {
   padding: 2%;
-  background: linear-gradient(#000000, rgb(39, 39, 39));
+  background: opacity(0.5);
+}
+
+form, input {
+  color: white;
 }
 
 h1 {
@@ -161,35 +166,22 @@ h1 {
   color: white;
 }
 
+h2 {
+  color: white;
+  font-size: 1.5rem;
+}
+
 h4 {
   color: white;
   font-size: 1rem;
 }
 
-#btnStyle1 {
-  height: auto;
-  padding: 5%;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  background-color: var(--colorbtn);
-  text-align: center;
-  box-sizing: inherit;
-  cursor: pointer;
+small {
+  font-size: 0.85rem;
 }
 
-#btnStyle2 {
-  height: auto;
-  padding: 0 1%;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  background-color: var(--colorbtn);
-  text-align: center;
-  box-sizing: inherit;
-  cursor: pointer;
-}
-
-img {
-  width: 100%;
+#marginTop {
+  margin-top: 3%;
 }
 
 #cardContainer {
@@ -198,13 +190,17 @@ img {
   justify-content: center;
 }
 
+#cardImg {
+  width: 100%;
+}
+
 a {
-  color: black;
+  color: rgb(255, 255, 255);
   font-style: none;
   text-decoration: none;
 }
 a:hover {
-  background-color: #a0cdff;
+  background-color: #f8e0b0;
 }
 
 .card {
@@ -215,29 +211,36 @@ a:hover {
   align-items: center;
   padding: 1%;
   margin: 1% 0;
-  background-color: url(.src/img/backgroung_card.jpg) !important;
+  background: linear-gradient(var(--colorbtn), #f8e0b0);
 }
 
-#addGame {
+#card_btnUser {
+  width: 100%;
+  padding: 0 3%;
   display: flex;
-  justify-content: center;
-}
-#addGame > form {
-  width: 80%;
-}
-
-.addGameForm {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.addGameForm > input {
-  padding: 1%;
-  width: 70%;
+  justify-content: space-between;
 }
 
 #pegi {
-  width: 10%;
+  width: 50%;
+}
+
+/*Annumation materialize*/
+.btn {
+  background-color: var(--colorbtn) !important;
+  padding: 1px !important;
+}
+
+button.datepicker-day-button {
+  color: black !important;
+}
+
+div.datepicker-date-display {
+  background-color: var(--colorbtn);
+}
+
+.input-field > label {
+  color: white;
 }
 
 /*# sourceMappingURL=styles.css.map */

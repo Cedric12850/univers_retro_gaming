@@ -1,8 +1,13 @@
 
 
 
-        <form action="index.php" method="get">
-                <input id="btnStyle2" type="submit" value="Accueil">
+        <form id="marginTop" action="index.php" method="get">
+                <div class="row">
+                        <div class="col s12">
+                                <input class="btn waves-effect waves-light" type="submit" value="Accueil">
+                        </div>
+                </div> 
+                
         </form>
 
         
