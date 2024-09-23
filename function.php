@@ -114,22 +114,13 @@ function addGenreToGame($genreId, $gameId){
     $stmt->execute();
 }
 
-// function joinAutorArticle (){
-//     $dbh = dbconnect();
-//     $query = "SELECT game.autor_article, pseudo FROM users
-//         JOIN  game ON users.user_id = game.autor_article
-//         WHERE game.game_id";
-//     $stmt = $dbh->prepare($query);
-//     $stmt->execute();
-
-// }
-
 
 //récupère tous les jeux avec les users
 function getAllGame () {
     $dbh = dbconnect();
     //$query = "SELECT * FROM game";
-    $query = "select * from game inner join users on autor_id = user_id";
+    $query = "select * from game inner 
+        join users on autor_id = user_id";
     $stmt = $dbh->prepare($query);
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -181,11 +172,49 @@ function showGameByid($id) {
     $dbh = dbconnect();
     $query = "SELECT * 
         FROM game
+        JOIN users ON user_id = autor_id
         WHERE game_id = :id";
     $stmt = $dbh->prepare($query);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $results;
+}
+
+
+//stoker les commentaires dans Bdd
+function addCommentIntoBdd($comment, $tableInt_autor_id, $tableInt_comment_id) {
+    $dbh = dbconnect();
+    $query = "INSERT INTO user_comment(comment, tableInt_autor_id, tableInt_comment_id) VALUES (:comment, :tableInt_autor_id, :tableInt_comment_id)";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':comment', $comment);
+    $stmt->bindParam(':tableInt_autor_id', $tableInt_autor_id);
+    $stmt->bindParam(':tableInt_comment_id', $tableInt_comment_id);
+    $stmt->execute();
+    $idComment = $dbh->lastInsertId();
+        return $idComment;
+}
+
+function getComments($id) {
+    $dbh = dbconnect();
+    $query = "SELECT * 
+        FROM game
+        JOIN user_comment ON game_id = tableInt_comment_id
+        join users ON user_id = tableInt_autor_id
+        WHERE game.game_id = :id";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results;
+}
+
+function deleteComment($id){
+    $dbh = dbconnect();
+    $query = "DELETE FROM user_comment
+    WHERE id_comment = :id";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
 }
 ?>

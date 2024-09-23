@@ -18,7 +18,7 @@
             <small>Jeu ajouté par <a href="gameByAutor.php?id=<?php echo $game['user_id']?>"><?php echo ucfirst($game['pseudo']) ?></small></a>
             
             <p><?php echo $game['game_description'] ?></p>
-            <small><img src="<?php echo $game['pegi_id'] ?>" alt="pegi"></small>
+            <small><img id="pegiImg" src="<?php echo $pegi['pegi_img'] ?> ?>" alt="pegi"></small>
 
         </article>
 

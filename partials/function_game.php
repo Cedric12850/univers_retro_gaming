@@ -41,8 +41,7 @@ if (isset($_POST)&& !empty($_POST)) {
         $game_description = $_POST['game_description'];
         $game_img = $uploadDirectory.$_FILES["game_img"]["name"];
         $pegi = $_POST['addPegiIntoGame'];
-        $autor_id = $user_id;   //En atttente de réparation pour afficher le nom de l'auteur
-       
+        $autor_id = $user_id;   // pour afficher le nom de l'auteur
        
         //$idInsertGame récupère l'id de 'linsertGameIntoDB pour l'utiliser ensuite dans l'ajout du genre
         $idInsertGame = insertGameIntoDB(
@@ -65,9 +64,7 @@ if (isset($_POST)&& !empty($_POST)) {
 }
 
 //affichage des jeux, genres et pegi
-$games = getAllGame();
-$genres = getAllGenre();
-$pegis = getAllPegi();
+
 
 
 
@@ -78,6 +75,5 @@ $pegis = getAllPegi();
 //     $resetgame = deleteThisGame('game_titre');
 // }
 
-//Affichage des jeu par auteur de l'article
 
 ?>

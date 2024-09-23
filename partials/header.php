@@ -2,6 +2,13 @@
 session_start();
 require_once 'function.php';
 
+$games = getAllGame();
+$genres = getAllGenre();
+$pegis = getAllPegi();
+$pegi = $pegis[0]; //permet l'affichage des pegi dans les cards
+$game_id = $_GET['id']; // récupération de l'id du jeu
+$comments = getComments($game_id); //affiche des commentaires
+
 if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
     $user = $_SESSION['user']['pseudo'];
     $user_id = $_SESSION['user']['id'];
@@ -9,6 +16,7 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
 }else{
     $user = 'visiteur';
 }
+
 
 ?>
 
@@ -21,7 +29,7 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
 
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./src/css/styles.css">
 
@@ -32,7 +40,7 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
     <section class="paralax">
         <nav id="menuHeader">
             <div id="divLogo">
-                <a href="index.php"><img id="logoSite" src="./src/img/Logo_urg.jpg" alt="logo du site"></a>             
+                <a href="index.php"><img id="logoSite" src="./src/img/logo_retrogaming2.1.png" alt="logo du site"></a>             
             </div>
 
             <div class="menuBurger">
@@ -67,8 +75,9 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
 </header>
 
 <main class="container">
-    <div>
-        <h4>Bienvenue <?php echo ucfirst($user) ?></h4>
+    <div>  
+        <h4>Bienvenue <?php echo ucfirst($user) ?> sur le site:</h4>
+        <h1>UNIVERS RETRO-GAMING</h1> 
     </div>
     <?php if($user != 'visiteur') { ?>    
         <div>
@@ -90,5 +99,5 @@ if(isset($_SESSION['user'])&& !empty($_SESSION['user'])) {
             </div>            
     <?php } ?>
 
-    <h1>UNIVERS RETRO-GAMING</h1>
+    
    
