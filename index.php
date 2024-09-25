@@ -9,7 +9,7 @@ $games = getAllGame();
 
 <div class="row" id="cardContainer">
     <?php foreach($games as $game)  {  ?>
-        <article class="col s12 m5 offset-m1 xl3 offset-xl1 card">
+        <article class="col s12 m5 offset-m1 xl2 offset-xl1 card">
             <div class="col s12">
                 <a href="cardGame.php?id=<?php echo $game['game_id'] ?>">
                     <img id="cardImg" src="<?php echo $game['game_img']?>" alt="<?php echo $game['game_titre'] ?>">
