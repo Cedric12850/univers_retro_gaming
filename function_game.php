@@ -22,9 +22,12 @@ if (isset($_POST)&& !empty($_POST)) {
         $autor_id = $user_id;   // pour afficher le nom de l'auteur
         
         //récupère tous les genres et leurs id pour remplir la table mais on ne peut entrer qu'un seul genre ?
-        $game_genre = $_POST['checkGenres'];
-        // var_dump($game_genre);
-        die();
+        $game_genres = $_POST['checkGenres'];
+    foreach ($game_genres as $game_genre){
+        var_dump($game_genre);
+    }
+        
+
         
         //$idInsertGame récupère l'id de 'linsertGameIntoDB pour l'utiliser ensuite dans l'ajout du genre
         $idInsertGame = insertGameIntoDB(
