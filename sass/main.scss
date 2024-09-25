@@ -251,6 +251,9 @@ small {
 
 
 #cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     
 }
 
@@ -270,114 +273,30 @@ a {
     flex-direction: column;  
     border: 1px solid black;
     align-items: center;
-    padding: 1% !important;
-    background: var(--backgroundCard) ;
-}
-
-#card_btnUser {
-    width: 100%;
-    padding: 0 3% ;
-    display: flex;
-    justify-content: space-between;
-}
-#year_genre{
-    display: flex;
-    flex-direction: column;
-}
-#gameDescritpion {
+    padding: 1%;
+    margin: 1% 0;
+    background-color: url(.src/img/backgroung_card.jpg) !important ;
     
-    &>p{
-        font-size: large;
-    }
 }
 
-
-
-#pegi {
-    width: 50%;
-}
-#pegiImg{
-    width: 15%;
-}
-
-/*formulaire comment actif ou non*/
-#comment {
-    max-height: 0;
-   overflow: hidden; /* Cache le contenu lorsque max-height est 0 */
-    &>input{
-
-        color: black;
-    }
-}
-form#comment.closeComment{
-    max-height: 0; /* Replie le menu */
-}
-form#comment.openComment{
-    max-height: max-content; /* Ajustez la hauteur maximale en fonction du contenu */
-}
-.btn#commentBtn, input#commentBtn {
-    font-size: 10px;
-}
-
-#userComment {
-    border: 1px solid black;
-    margin: 5px 0;
-    width: 100%;
-    &>div {
-        padding: 0 5px;
-    }
-    &>div:first-child{
-        width: 100%;
-        background-color: rgb(179, 174, 174);
-        margin: 0;
-    }
-}
-
-/*Annumation materialize*/
-.row {
-    margin-top: 10px;
-}
-.btn {
-    background-color: var(--colorbtn) !important;
-    padding: 0 10px;
-    &>i{
-        font-size: 0.8rem;
-    }
-}
-button.datepicker-day-button{
-    color: black !important;
-}
-div.datepicker-date-display {
-    background-color: var(--colorbtn);
-}
-.input-field>label{
-    color: white;
-}
-/*____________________________________________________________________*/
-// responsive >600px
-@media screen and (min-width: 600px){
-    #logoSite {
+#addGame {
+    display: flex;
+    justify-content: center;
+    &> form {
         width: 80%;
     }
-    #pegi{
+}
+.addGameForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &>input {
+        padding: 1%;
         width: 70%;
     }
 }
+#pegi {
+    width: 10%;
+}
 
-/*____________________________________________________________________*/
-// responsive >992px
-@media screen and (min-width: 992px) {
-    #logoSite {
-        width: 60%;
-    }
-    #pegi{
-        width:80%;
-    }
-}
-/*____________________________________________________________________*/
-// responsive >1200px
-@media screen and (min-width: 1200px) {
-    #logoSite {
-        width: 45%;
-    }
-}
+

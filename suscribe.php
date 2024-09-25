@@ -33,6 +33,7 @@ require_once 'partials/header.php';
     <h2>Inscrivez-vous.</h2>
     <div class="row">
         <form class="col s12" id="suscribe" action="" method="post">
+<<<<<<< HEAD
             <div>
                 <div class="col l6">
                     <div class="input-field col s12 m6 l12 ">
@@ -75,15 +76,68 @@ require_once 'partials/header.php';
                     </div>
                 </div>
                 <div class="input-field col s12 m2 offset-m1 l2 offset-l1">
+=======
+            <div class="row">
+                <div class="input-field col s6">
+                    <input class="validate" type="text" name="firstName">
+                    <label for="firstName">Nom:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input class="validate" type="text" name="lastName">
+                    <label for="lastName">Prénom:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <input class="validate" type="text" name="pseudo">
+                    <label for="pseudo">Pseudo:</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="text" name="birthday" class="validate datepicker">
+                    <label for="birthday">Date de naissance:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="email" name="email" class="validate">
+                    <label for="email">Email:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="adresse" class="validate">
+                    <label for="adresse">Adresse:</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" name="town" class="validate">    
+                    <label for="town">Ville:</label>
+                </div>
+                <div class="input-field col s6">
+>>>>>>> 197adba135fbffe23732a8969dd07351fd2dc7a5
                     <input type="text" name="town_cp" class="validate">
                     <label for="town_cp">Code postal:</label>
                 </div>
             </div>
 
+<<<<<<< HEAD
                 <div class="input-field col s12 m7 offset-m1">
                     <input type="password" name="password" class="validate">
                     <label for="password">Mot de passe:</label>
                 </div>
+=======
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="password" name="password" class="validate">
+                    <label for="password">Mot de passe:</label>
+                </div>
+            </div>
+>>>>>>> 197adba135fbffe23732a8969dd07351fd2dc7a5
             
             <input class="btn waves-effect waves-light" type="submit" value="Valider">
 

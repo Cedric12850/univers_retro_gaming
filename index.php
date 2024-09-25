@@ -2,6 +2,7 @@
 require_once 'partials/header.php';
 $games = getAllGame();
 
+
 ?>
 
 
