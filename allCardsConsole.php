@@ -28,11 +28,12 @@ require_once 'partials/header.php';
 ?>
 
 <h2>Liste des consoles:</h2>
-<div id="cardContainer">
+<div class="row" id="cardContainer">
     <?php foreach ($consoles as $console) { ?>
         <article class="card">
             <img id="cardImg" src="<?php echo $console['console_img']?>" alt="Photo de la NES">
-            <h3><?php echo $console['console_name'] ?></h3> <small><?php echo $console['console_year'] ?></small>          
+            <h3><?php echo $console['console_name'] ?></h3>
+            <small><?php echo $console['console_year'] ?></small>          
             <p><?php echo $console ['console_description'] ?></p>
 
         </article>

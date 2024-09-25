@@ -1,16 +1,16 @@
 // //Apparition des commentaires au clic
-// let showComment = document.getElementById('comment');
-// let commentBtn = document.getElementById('commentBtn')
-// commentBtn.addEventListener('click', () => {
-//   showComment.classList.toggle('openComment')
-//   if(showComment.classList.contains('openComment')){
-//     showComment.classList.remove ('closeComment')
-//     showComment.classList.add('openComment')
-//   }else{
-//     showComment.classList.remove ('openComment')
-//     showComment.classList.add('closeComment')
-//   }
-// });
+let showComment = document.getElementById('comment');
+let commentBtn = document.getElementById('commentBtn')
+commentBtn.addEventListener('click', () => {
+  showComment.classList.toggle('openComment')
+  if(showComment.classList.contains('openComment')){
+    showComment.classList.remove ('closeComment')
+    showComment.classList.add('openComment')
+  }else{
+    showComment.classList.remove ('openComment')
+    showComment.classList.add('closeComment')
+  }
+});
 
 
 

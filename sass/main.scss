@@ -302,8 +302,8 @@ a {
 
 /*formulaire comment actif ou non*/
 #comment {
-    //max-height: 0;
-   // overflow: hidden; /* Cache le contenu lorsque max-height est 0 */
+    max-height: 0;
+   overflow: hidden; /* Cache le contenu lorsque max-height est 0 */
     &>input{
 
         color: black;
