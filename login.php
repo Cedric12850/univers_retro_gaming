@@ -26,11 +26,23 @@ if(isset($_POST)&& !empty($_POST)) {
 ?>
 
 
-<div>
+<div class="row">
     <form action="" method="post">
-        <input type="text" name="pseudo" placeholder="Pseudo">
-        <input type="password" name="password" placeholder="Mot de passe">
-        <input id="btnStyle2" type="submit" value="Se connecter">
+            <div class="row">
+                <div class="input-field col s5 offset-s1">
+                    <input type="text" name="pseudo" class="validate">
+                    <label for="pseudo">Pseudo:</label>
+                </div>
+            
+           
+                <div class="input-field col s5 offset-s1">
+                    <input type="password" name="password" class="validate">
+                    <label for="password">Mot de passe:</label>
+                </div>
+            </div>
+            
+       
+        <input class="btn waves-effect waves-light" type="submit" value="Se connecter">
     </form>
 </div>
 

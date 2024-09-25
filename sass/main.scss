@@ -1,9 +1,12 @@
 :root {
-    --colorbtn: #fc5f05;
+    --colorbtn: #ffc04a;
     --radius: 10%;
-    --shadow: 1px 3px 5px 1px rgb(78, 78, 78);
+    --shadow: 1px 1px 3px 1px rgb(212, 212, 212);
+    --backgroundCard: white;
+    
 }
 
+$background: "../img/background.jpg";
 $mario: "../img/mario.gif";
 $sonic: "../img/sonic2.gif";
 $superSonic: "../img/sonic.gif";
@@ -27,6 +30,10 @@ $sonicHeight: 25px;
 html {
     box-sizing: border-box;
     font-family: 'roboto';
+    background-image: url($background);
+    background-size: contain;
+    background-repeat: repeat;
+    
   }
   
   *, *:after, *:before {
@@ -39,10 +46,11 @@ html {
     text-transform: capitalize;
   }
 
-  main {
-    padding: 2%;
-    background: linear-gradient(#f8e0b0,white);
-  }
+footer {
+    margin-bottom:20px;
+    color: white;
+}
+
 
 .paralax {
     height:400px;
@@ -118,10 +126,11 @@ nav {
 
 #burgerBtn {
         border: none;
+        background-color: transparent ;
     &>i {
         font-size: 3rem;
         color: var(--colorbtn);
-        background-color: #f8e0b0;
+        
         cursor: pointer;    
     }
 }
@@ -136,7 +145,7 @@ nav {
     overflow: hidden; /* Cache le contenu lorsque max-height est 0 */
     transition: max-height 1s ease-in-out;
     &>li{
-        width: 20%;
+        width: 35%;
         margin: 2%;
     }
 }
@@ -191,76 +200,184 @@ input {
         margin: 0 1%;
     }
 }
-#btnStyle1{
-    height: 1.5rem;
-    padding: 5%;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    background-color: var(--colorbtn);
-    text-align: center;
-    box-sizing: inherit;
-    cursor: pointer;
+
+/*___________________________________________________________________________________________________________________________________________*/
+
+main{
+    padding: 2%;
+    background: opacity(0.5);
 }
-#btnStyle2 {
-    height: 1.5rem;
-    padding: 0 1%;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    background-color: var(--colorbtn);
+form, input {
+    color: white;
+}
+h1{
+    font-size: 2rem; 
+    color: white;
     text-align: center;
-    box-sizing: inherit;
-    cursor: pointer;
+}
+h2 {
+    color: white;
+    font-size: 1.5rem;
+}
+h4 {
+    color: white;
+    font-size: 1.5rem;
+}
+small {
+    font-size: 0.85rem;
 }
 
-img {
-    width: 100%;
+#marginTop{
+    margin-top: 3%;
 }
+// #btnStyle2 {
+//     height:auto;
+//     padding: 0 1%;
+//     border-radius: var(--radius);
+//     box-shadow: var(--shadow);
+//     background-color: var(--colorbtn);
+//     text-align: center;
+//     box-sizing: inherit;
+//     cursor: pointer;
+//     color: white;
+// }
+.btn#btnStyle3{
+    padding: 0;
+    
+    &>i{
+        font-size: 1.3rem;
+    }
+}
+
 
 #cardContainer{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     
+}
+
+#cardImg {
+    width: 100%;
+    padding-top: 3%;
 }
 
 a {
-    color: black;
+    color: rgb(0, 0, 0);
     font-style: none;
     text-decoration: none;
-    &:hover {
-        background-color: #a0cdff;
-    }
-}
-.card {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    border: 1px solid black;
-    align-items: center;
-    padding: 1%;
-    margin: 1% 0;
-    background-color: url(.src/img/backgroung_card.jpg) !important ;
-    
 }
 
-#addGame {
+.card {
     display: flex;
-    justify-content: center;
-    &> form {
-        width: 80%;
+    flex-direction: column;  
+    border: 1px solid black;
+    align-items: center;
+    padding: 1% !important;
+    background: var(--backgroundCard) ;
+}
+
+#card_btnUser {
+    width: 100%;
+    padding: 0 3% ;
+    display: flex;
+    justify-content: space-between;
+}
+#year_genre{
+    display: flex;
+    flex-direction: column;
+}
+#gameDescritpion {
+    
+    &>p{
+        font-size: large;
     }
 }
-.addGameForm {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    &>input {
-        padding: 1%;
+
+
+
+#pegi {
+    width: 50%;
+}
+#pegiImg{
+    width: 15%;
+}
+
+/*formulaire comment actif ou non*/
+#comment {
+    //max-height: 0;
+   // overflow: hidden; /* Cache le contenu lorsque max-height est 0 */
+    &>input{
+
+        color: black;
+    }
+}
+form#comment.closeComment{
+    max-height: 0; /* Replie le menu */
+}
+form#comment.openComment{
+    max-height: max-content; /* Ajustez la hauteur maximale en fonction du contenu */
+}
+.btn#commentBtn, input#commentBtn {
+    font-size: 10px;
+}
+
+#userComment {
+    border: 1px solid black;
+    margin: 5px 0;
+    width: 100%;
+    &>div {
+        padding: 0 5px;
+    }
+    &>div:first-child{
+        width: 100%;
+        background-color: rgb(179, 174, 174);
+        margin: 0;
+    }
+}
+
+/*Annumation materialize*/
+.row {
+    margin-top: 10px;
+}
+.btn {
+    background-color: var(--colorbtn) !important;
+    padding: 0 10px;
+    &>i{
+        font-size: 0.8rem;
+    }
+}
+button.datepicker-day-button{
+    color: black !important;
+}
+div.datepicker-date-display {
+    background-color: var(--colorbtn);
+}
+.input-field>label{
+    color: white;
+}
+/*____________________________________________________________________*/
+// responsive >600px
+@media screen and (min-width: 600px){
+    #logoSite {
+        width: 80%;
+    }
+    #pegi{
         width: 70%;
     }
 }
-#pegi {
-    width: 10%;
+
+/*____________________________________________________________________*/
+// responsive >992px
+@media screen and (min-width: 992px) {
+    #logoSite {
+        width: 60%;
+    }
+    #pegi{
+        width:80%;
+    }
 }
-
-
+/*____________________________________________________________________*/
+// responsive >1200px
+@media screen and (min-width: 1200px) {
+    #logoSite {
+        width: 45%;
+    }
+}
