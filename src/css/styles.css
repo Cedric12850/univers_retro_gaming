@@ -199,13 +199,15 @@ small {
   font-size: 1.3rem;
 }
 
-#cardImg {
-  width: 100%;
-  padding-top: 3%;
+#cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #cardImg {
   width: 100%;
+  padding-top: 3%;
 }
 
 a {
@@ -219,28 +221,31 @@ a {
   flex-direction: column;
   border: 1px solid black;
   align-items: center;
-  padding: 1% !important;
-  background: var(--backgroundCard);
+  padding: 1%;
+  margin: 1% 0;
+  background-color: url(.src/img/backgroung_card.jpg) !important;
 }
 
-#card_btnUser {
-  width: 100%;
-  padding: 0 3%;
+#addGame {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+}
+#addGame > form {
+  width: 80%;
 }
 
-#year_genre {
+.addGameForm {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
-#gameDescritpion > p {
-  font-size: large;
+.addGameForm > input {
+  padding: 1%;
+  width: 70%;
 }
 
 #pegi {
-  width: 50%;
+  width: 10%;
 }
 
 #pegiImg {
@@ -252,6 +257,7 @@ a {
   max-height: 0;
   overflow: hidden; /* Cache le contenu lorsque max-height est 0 */
 }
+
 #comment > input {
   color: black;
 }
@@ -273,9 +279,11 @@ form#comment.openComment {
   margin: 5px 0;
   width: 100%;
 }
+
 #userComment > div {
   padding: 0 5px;
 }
+
 #userComment > div:first-child {
   width: 100%;
   background-color: rgb(179, 174, 174);
@@ -291,6 +299,7 @@ form#comment.openComment {
   background-color: var(--colorbtn) !important;
   padding: 0 10px;
 }
+
 .btn > i {
   font-size: 0.8rem;
 }
@@ -331,5 +340,6 @@ div.datepicker-date-display {
     width: 30%;
   }
 }
+
 
 /*# sourceMappingURL=styles.css.map */

@@ -59,9 +59,7 @@ class User {
     }
     
     //Mutateur set
-    public function setUser_id(){
-        return $this->user_id;
-    }
+    
     public function setFirstName(){
         return $this->firstName;
     }
@@ -91,5 +89,3 @@ class User {
     }
     }
 
-    
-?>
