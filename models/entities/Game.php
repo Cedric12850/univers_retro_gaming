@@ -9,17 +9,18 @@ class Game {
     private $autor_id;
     private $date_article;
 
-    public function __construct($game_id, $game_titre, $game_year, $game_description, $game_img, $pegi_id, $autor_id, $date_article)
-    {
-        $this-> game_id= $game_id ;
-        $this-> game_titre= $game_titre ;
-        $this-> game_year= $game_year ;
-        $this-> game_description= $game_description ;
-        $this-> game_img= $game_img ;
-        $this-> pegi_id= $pegi_id ;
-        $this-> autor_id= $autor_id ;
-        $this-> date_article= $date_article ;
-    }
+ //constructeru non-obligatoire (PS: d'ailleurs dans cette page il me fait planter le code --> Décommenter et lire l'erreur)
+    // public function __construct($game_id, $game_titre, $game_year, $game_description, $game_img, $pegi_id, $autor_id, $date_article)
+    // {
+    //     $this-> game_id= $game_id ;
+    //     $this-> game_titre= $game_titre ;
+    //     $this-> game_year= $game_year ;
+    //     $this-> game_description= $game_description ;
+    //     $this-> game_img= $game_img ;
+    //     $this-> pegi_id= $pegi_id ;
+    //     $this-> autor_id= $autor_id ;
+    //     $this-> date_article= $date_article ;
+    // }
 
     //Méthode magique get
     public function getGameId(){

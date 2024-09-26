@@ -3,11 +3,7 @@ class Genre {
     private $genre_id;
     private $genre_name;
 
-    public function __construct($genre_id, $genre_name)
-    {
-        $this-> genre_id=$genre_id;
-        $this-> genre_name=$genre_name;
-    }
+   
 
     //Méthode magique get
     public function getGenreId(){

@@ -1,8 +1,11 @@
 <?php
 session_start();
 require_once 'function.php';
+require_once 'models/managers/GameManager.php';
+    $games = GameManager::getAllGame();
 
-$games = getAllGame();
+
+    
 $genres = getAllGenre();
 $pegis = getAllPegi();
 $pegi = $pegis[0]; //permet l'affichage des pegi dans les cards

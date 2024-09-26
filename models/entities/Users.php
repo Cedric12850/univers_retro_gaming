@@ -12,19 +12,20 @@ class User {
     private $email;
     private $password;
 
-    public function __construct($user_id, $firstName, $lastName, $pseudo, $birthdate, $adresse, $town, $town_cp, $email, $password)
-    {
-        $this-> user_id=$user_id;
-        $this-> firstName=$firstName;
-        $this-> lastName=$lastName;
-        $this-> pseudo=$pseudo;
-        $this-> birthdate=$birthdate;
-        $this-> adresse=$adresse;
-        $this-> town=$town;
-        $this-> town_cp=$town_cp;
-        $this-> email=$email;
-        $this-> password=$password;
-    }
+    //constructeru non-obligatoire (PS: d'ailleurs dans cette page il me fait planter le code --> Décommenter et lire l'erreur)
+    // public function __construct($user_id, $firstName, $lastName, $pseudo, $birthdate, $adresse, $town, $town_cp, $email, $password)
+    // {
+    //     $this-> user_id=$user_id;
+    //     $this-> firstName=$firstName;
+    //     $this-> lastName=$lastName;
+    //     $this-> pseudo=$pseudo;
+    //     $this-> birthdate=$birthdate;
+    //     $this-> adresse=$adresse;
+    //     $this-> town=$town;
+    //     $this-> town_cp=$town_cp;
+    //     $this-> email=$email;
+    //     $this-> password=$password;
+    // }
 
     //Mutateur get
     public function getUser_id(){
