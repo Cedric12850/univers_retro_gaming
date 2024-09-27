@@ -4,8 +4,8 @@ require_once './models/managers/GameManager.php';
 
 
 $game_id = $_GET['id'];
-$gamesById = GameManager::showGameByid($id);
-var_dump($games);
+$gameById = GameManager::showGameByid($game_id);
+$gameById = $gameById[0];
 
 // $gameById = $gamesById[0];
 // $pegi = $pegis[0];

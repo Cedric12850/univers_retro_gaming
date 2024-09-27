@@ -28,6 +28,19 @@ class UsersManager
             }  
     }
 
+    //connexion user
+    public static function connectUser ($pseudo) {
+        $dbh = dbconnect ();
+        $query = "SELECT * FROM users
+        WHERE pseudo = :pseudo";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':pseudo', $pseudo);
+        $stmt-> execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $result = $stmt->fetch();
+        return $result;
+    }
+
     //fonction pour remplacer l'id_autor de game par le pseudo de l'auteur
     public static function getPseudoByAutorId() {
         $dbh = dbconnect();

@@ -3,7 +3,7 @@
 require_once 'models/entities/Users.php';
 require_once 'models/entities/Game.php';
 
-//connexion user
+// //connexion user
 // function connectUser ($pseudo) {
 //     $dbh = dbconnect ();
 //     $query = "SELECT * FROM users

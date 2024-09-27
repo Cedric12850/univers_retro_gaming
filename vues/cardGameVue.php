@@ -8,16 +8,16 @@ require_once 'partials/header.php';
     <article class="col s12 offset-m2 m8 l12 card">
         <div class="col xl12">
             <div class="col s12 xl6">
-                <img id="cardImg" src="<?php echo $gameById['game_img']?>" alt="<?php echo $gameById['game_titre'] ?>">   
+                <img id="cardImg" src="<?php echo $gameById->getGameImg()?>" alt="<?php echo $gameById->getGameImg() ?>">   
             </div>
             <div class="col xl6">
                 <div class="col s12">
-                    <h3 class="col xl12"><?php echo $gameById['game_titre'] ?></h3>
+                    <h3 class="col xl12"><?php echo $gameById->getGameTitre() ?></h3>
                 </div> 
                 <div  id="card_btnUser">
                     <div id="year_genre">
-                        <small><?php echo $gameById['game_year'] ?></small>
-                        <small><?php echo $gameById['genre_name'] ?></small>
+                        <small><?php echo $gameById->getGameYear() ?></small>
+                        <small><?php echo ucfirst($genre->getGenreName()) ?></small>
                     </div>
                     <?php if( ($user != 'visiteur')&& ($user_id == $gameById['autor_id'])){ ?>  
                         <button class="btn waves-effect waves-light" type="submit"  id="reset btnStyle2" name="deleteBtn" >reset </button>
@@ -25,9 +25,9 @@ require_once 'partials/header.php';
                 </div>
                 
                 <div class="col s12" id="card_details">
-                    <small>Jeu ajouté par <a href="gameByAutor.php?id=<?php echo $gameById['user_id']?>"><?php echo ucfirst($gameById['pseudo']) ?></a> le <?php echo $gameById['date_article'] ?></small>
+                    <small>Jeu ajouté par <a href="gameByAutor.php?id=<?php echo $getAutorPseudo->getUser_id()?>"><?php echo ucfirst($getAutorPseudo->getPseudo()) ?></a> le <?php echo $gameById->getDateArticle() ?></small>
                     <div  id="gameDescritpion">
-                        <p class="col s12 m8 offset-m3"><?php echo $gameById['game_description'] ?></p>
+                        <p class="col s12 m8 offset-m3"><?php echo $gameById->getGameDescritpion() ?></p>
                         <img id="pegiImg" src="<?php echo $pegi['pegi_img'] ?>" alt="pegi">
                     </div>
             </div>
