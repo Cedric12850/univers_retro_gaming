@@ -5,18 +5,14 @@ require_once './models/managers/GameManager.php';
 
 $game_id = $_GET['id'];
 $gameById = GameManager::showGameByid($game_id);
-$gameById = $gameById[0];
+$getAutorPseudo = UsersManager::getPseudoByAutorId($gameById->getAutorID());
+$genres = GenreManager::getGenreByGameId($gameById->getGameId());
+foreach($genres as $genre){}
+$getPegi = PegiManager::ShowPegiGame($gameById->getPegiId());
 
-// $gameById = $gamesById[0];
-// $pegi = $pegis[0];
-// $game_id = $_GET['id'];
-// $comments = getComments($game_id);
-//récupère tous les genres et leurs id pour pouvoir les afficher
-// foreach($genres as $genre){
-//      $genre_id = $genre['genre_id'];
-//          $genre_name = $genre['genre_name'];
-//  }
- 
+
+require_once './models/managers/UserCommentManager.php';
+$getComments = UserCommentManager::getComments($gameById->getGameId());
 
 
 

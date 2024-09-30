@@ -5,7 +5,10 @@ require_once 'partials/header.php';
 
 <div class="row" id="cardContainer">
     <?php foreach($games as $game)  { 
-        
+        $getAutorPseudo = UsersManager::getPseudoByAutorId($game->getAutorId());
+        $genres = GenreManager::getGenreByGameId($game->getGameId());
+        foreach($genres as $genre){      }
+        $getPegi = PegiManager::ShowPegiGame($game->getPegiId());
          ?>
         <article class="col s12 m5 offset-m1 xl2 offset-xl1 card">
             <div class="col s12">
@@ -22,10 +25,10 @@ require_once 'partials/header.php';
                 <?php } ?>
             </div>
             <div class="col s12" id="card_details">
-                <small>Jeu ajouté par <a href="gameByAutor.php?id=<?php echo $game->getAutorId()?>"><?php echo ucfirst($game->getAutorId()) ?></small></a>
+                <small>Jeu ajouté par <a href="gameByAutor.php?id=<?php echo $game->getAutorId()?>"><?php echo ucfirst($getAutorPseudo->getPseudo()) ?></small></a>
                 <div id="gameDescritpion">
-                    <p><?php echo $game->getGameDescritpion() ?></p>
-                    <small><img id="pegiImg" src="<?php echo $pegi['pegi_img'] ?> ?>" alt="pegi"></small>
+                    <p><?php echo $game->getGameDescription() ?></p>
+                    <small><img id="pegiImg" src="<?php echo $getPegi->getPegiImg() ?> ?>" alt="pegi"></small>
                 </div>
             </div>
         </article> 

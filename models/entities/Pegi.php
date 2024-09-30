@@ -1,13 +1,7 @@
 <?php 
-class Genre {
+class Pegi {
     private $pegi_id;
     private $pegi_img;
-
-    public function __construct($pegi_id, $pegi_img)
-    {
-        $this-> pegi_id=$pegi_id;
-        $this-> pegi_img=$pegi_img;
-    }
 
     //Méthode magique get
     public function getPegiId(){

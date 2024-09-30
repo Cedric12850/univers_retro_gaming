@@ -42,14 +42,18 @@ class UsersManager
     }
 
     //fonction pour remplacer l'id_autor de game par le pseudo de l'auteur
-    public static function getPseudoByAutorId() {
+    public static function getPseudoByAutorId($id) {
         $dbh = dbconnect();
         $query = "SELECT *
             FROM users
-            JOIN game ON users.user_id = game.autor_id;";
+            WHERE user_id = :id";
         $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_CLASS, 'User');
-        return $results;
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $result = $stmt->fetch();
+        return $result;
 }
+
+
 }

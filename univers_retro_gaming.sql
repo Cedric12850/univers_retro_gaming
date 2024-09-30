@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 23, 2024 at 03:13 PM
+-- Generation Time: Sep 30, 2024 at 03:02 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -40,7 +40,8 @@ CREATE TABLE `console` (
 --
 
 INSERT INTO `console` (`console_id`, `console_name`, `console_year`, `console_description`, `console_img`) VALUES
-(1, 'Nintendo Nes', 1985, 'la première console de salon de Nintendo, une conole 8bits cultissime', 'NES-Console-Set.png');
+(3, 'Master System', 1985, 'la première console de Sega', 'upload/66f3ddb21a4b7-Sega-Master-System-Set.png'),
+(4, 'nintendo NES', 1985, 'la console de mon enfance', 'upload/66f3ddde57616-NES-Console-Set.png');
 
 -- --------------------------------------------------------
 
@@ -75,9 +76,10 @@ CREATE TABLE `game` (
 --
 
 INSERT INTO `game` (`game_id`, `game_titre`, `game_year`, `game_description`, `game_img`, `pegi_id`, `autor_id`, `date_article`) VALUES
-(1, 'Super Mario Bros', 1985, 'Le jeu culte de Mario', 'src/upload/mario_bros_nes.jpg', 1, 5, '2024-06-25'),
-(2, 'Super Mario Bros 2', 1988, 'La suite du jeu culte avec son frêre Luigi', 'super-mario-bros-2-nes.jpg', 1, 5, '2024-06-25'),
-(3, 'Sonic', 1991, 'Le hérisson bleu, rapide comme l\'éclaire', 'sonic_master-system.jpg', 1, 6, '2024-06-25');
+(69, 'Mario kart', 1995, 'jeux de courses qui promet des heures de rigolade entre amis', 'upload/66f3ce141df17-supermariokart-sn.jpg', 1, 1, '2024-06-25'),
+(70, 'Super Mario Bros', 1985, 'The collector game', 'upload/66f3cee31ca37-super_mario_bros.jpg', 1, 5, '2024-06-25'),
+(75, 'sonic', 1991, 'le hérisson bleu le plus rapide du monde', 'upload/66f3d88ee1125-sonic.jpg', 1, 6, '2024-06-25'),
+(76, 'sonic 2', 1995, 'La suite de Sonic avec Tails en plus on peut jouer à 2', 'upload/66f3d943326d0-sonic2.jpg', 1, 6, '2024-06-25');
 
 -- --------------------------------------------------------
 
@@ -89,6 +91,16 @@ CREATE TABLE `game_genre` (
   `tableInt_genre_id` int NOT NULL,
   `tableInt_game_genre_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `game_genre`
+--
+
+INSERT INTO `game_genre` (`tableInt_genre_id`, `tableInt_game_genre_id`) VALUES
+(1, 70),
+(1, 75),
+(1, 76),
+(2, 69);
 
 -- --------------------------------------------------------
 
@@ -109,7 +121,9 @@ INSERT INTO `genre` (`genre_id`, `genre_name`) VALUES
 (1, 'plateforme'),
 (2, 'course'),
 (3, 'combat'),
-(4, 'sport');
+(4, 'sport'),
+(5, 'aventure'),
+(6, 'action');
 
 -- --------------------------------------------------------
 
@@ -159,7 +173,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `firstName`, `lastName`, `pseudo`, `birthdate`, `adresse`, `town`, `town_cp`, `email`, `password`) VALUES
 (1, 'Deswarte', 'Cédric', 'super admin', '1981-06-20', '', 'Onet-le-chateau', 12850, 'cedric.deswarte81@gmail.com', '$2y$10$2yz.duhnQu2krSFgfGvJE.spVVHdgzS2Tw8jFj5yMSnp7e8r2fiei'),
 (5, 'Deswarte', 'Cédric', 'manwë', '1981-06-20', '4 rue du fer à cheval', 'Onet-le-chateau', 12850, 'cedcile1901@gmail.com', '$2y$10$Zxpeynlt5/iEkCGlvw4t7uEP7.Fx/z8gF2JBIDe5xS2Sj0ugbxQWi'),
-(6, 'Deswarte', 'Robin', 'robin', '2013-08-13', '4 rue du fer à cheval', 'Onet-le-chateau', 12850, 'deswarte.robin@gmail.com', '$2y$10$TxRjXPaKJ.phwB55hUAYI.0.AfmsdUDAE2pwhvT.DAzilEe.w02ZG');
+(6, 'Deswarte', 'Robin', 'robin', '2013-08-13', '4 rue du fer à cheval', 'Onet-le-chateau', 12850, 'deswarte.robin@gmail.com', '$2y$10$TxRjXPaKJ.phwB55hUAYI.0.AfmsdUDAE2pwhvT.DAzilEe.w02ZG'),
+(7, 'Fourmaux', 'Grégory', 'egregorion', '1985-05-07', '10 les fougères', 'Saint Agnant de Versillat', 23300, 'gregory.fourmaux@afpa.fr', '$2y$10$sS0y.5iaV8wt6E63.VfS2.2yoBhbNdlPMBow0tLifMqiLYVHPART6');
 
 -- --------------------------------------------------------
 
@@ -179,12 +194,7 @@ CREATE TABLE `user_comment` (
 --
 
 INSERT INTO `user_comment` (`id_comment`, `comment`, `tableInt_autor_id`, `tableInt_comment_id`) VALUES
-(27, 'j\'adore ce mario', 6, 2),
-(24, 'Sonic, le jeu que je préfère', 6, 3),
-(19, 'super jeu, j\'adore', 1, 1),
-(29, 'super jeu, j\'adore', 1, 2),
-(2, 'test commentaire', 5, 1),
-(22, 'vraiment génial', 1, 1);
+(34, 'Test commentaire en dur', 7, 70);
 
 --
 -- Indexes for dumped tables
@@ -215,6 +225,7 @@ ALTER TABLE `game`
 -- Indexes for table `game_genre`
 --
 ALTER TABLE `game_genre`
+  ADD PRIMARY KEY (`tableInt_genre_id`,`tableInt_game_genre_id`),
   ADD KEY `FK_genre_id` (`tableInt_genre_id`),
   ADD KEY `FK_game_genre` (`tableInt_game_genre_id`);
 
@@ -253,19 +264,19 @@ ALTER TABLE `user_comment`
 -- AUTO_INCREMENT for table `console`
 --
 ALTER TABLE `console`
-  MODIFY `console_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `console_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `game_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `game_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `genre`
 --
 ALTER TABLE `genre`
-  MODIFY `genre_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `genre_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pegi`
@@ -277,13 +288,13 @@ ALTER TABLE `pegi`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_comment`
 --
 ALTER TABLE `user_comment`
-  MODIFY `id_comment` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_comment` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables

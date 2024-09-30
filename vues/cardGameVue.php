@@ -19,7 +19,7 @@ require_once 'partials/header.php';
                         <small><?php echo $gameById->getGameYear() ?></small>
                         <small><?php echo ucfirst($genre->getGenreName()) ?></small>
                     </div>
-                    <?php if( ($user != 'visiteur')&& ($user_id == $gameById['autor_id'])){ ?>  
+                    <?php if( ($user != 'visiteur')&& ($user_id == $gameById->getAutorId())){ ?>  
                         <button class="btn waves-effect waves-light" type="submit"  id="reset btnStyle2" name="deleteBtn" >reset </button>
                     <?php } ?>
                 </div>
@@ -27,8 +27,8 @@ require_once 'partials/header.php';
                 <div class="col s12" id="card_details">
                     <small>Jeu ajouté par <a href="gameByAutor.php?id=<?php echo $getAutorPseudo->getUser_id()?>"><?php echo ucfirst($getAutorPseudo->getPseudo()) ?></a> le <?php echo $gameById->getDateArticle() ?></small>
                     <div  id="gameDescritpion">
-                        <p class="col s12 m8 offset-m3"><?php echo $gameById->getGameDescritpion() ?></p>
-                        <img id="pegiImg" src="<?php echo $pegi['pegi_img'] ?>" alt="pegi">
+                        <p class="col s12 m8 offset-m3"><?php echo $gameById->getGameDescription() ?></p>
+                        <img id="pegiImg" src="<?php echo $getPegi->getPegiImg() ?>" alt="pegi">
                     </div>
             </div>
         </div>
@@ -47,12 +47,15 @@ require_once 'partials/header.php';
             <?php } ?>
             <h5>Commentaires: </h5>
         
-            <?php foreach($comments as $comment) { ?>
+            <?php foreach($getComments as $getComment) {
+                $pseudoComment = UserCommentManager::getPseudoComment($getComment->getTableIntAutorId());
+                var_dump($pseudoComment)
+                ?>
                 
                 <div id="userComment">
                     <div class="row">
-                        <p class="col s8"><?php echo $comment['pseudo'] ?> a écrit:</p>
-                        <?php if($user_id == $comment['tableInt_autor_id'] ) { ?>
+                        <p class="col s8"><?php echo ucfirst($getAutorPseudo->getPseudo()) ?> a écrit:</p>
+                        <?php if($user_id == $getAutorPseudo->getUser_id() ) { ?>
                             <form class="" action="" method="post">
                                 <button class="btn waves-effect waves-light col s1" type="submit"  id="btnStyle3" name="modifBtn" ><i class="fa-solid fa-pen-nib"></i></button>
                                 <button class="btn waves-effect waves-light col s1 offset-s1 " type="submit"  id="btnStyle3" name="deleteBtn" ><i class="fa-solid fa-xmark"></i></button>
@@ -61,7 +64,7 @@ require_once 'partials/header.php';
                         
                     </div>
                     <div>
-                        <p><?php echo $comment['comment'] ?></p>
+                        <p><?php echo $getComment->getComment() ?></p>
                     </div>
                 </div>
             <?php } ?>

@@ -32,7 +32,7 @@ class Game {
     public function getGameYear(){
         return $this->game_year;
     }
-    public function getGameDescritpion(){
+    public function getGameDescription(){
         return $this->game_description;
     }
     public function getGameImg(){

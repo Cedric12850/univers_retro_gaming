@@ -9,10 +9,7 @@ class GameManager
     {
         $dbh = dbconnect();
         //$query = "SELECT * FROM game";
-        $query = "SELECT * FROM game 
-            join users on autor_id = user_id
-            join game_genre on tableInt_game_genre_id = game_id
-            join genre on genre_id = tableInt_genre_id ";           
+        $query = "SELECT * FROM game";
         $stmt = $dbh->prepare($query);
         $stmt->execute();
      
@@ -25,10 +22,21 @@ class GameManager
         $dbh = dbconnect();
         $query = "SELECT * 
             FROM game
-            JOIN users ON user_id = autor_id
-            join game_genre on tableInt_game_genre_id = game_id
-            join genre on genre_id = tableInt_genre_id
             WHERE game_id = :id";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Game');
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    //afficher les jeux par autor_id
+    public static function showGameByAutorId($id) {
+        $dbh = dbconnect();
+        $query = "SELECT * 
+            FROM game
+            WHERE autor_id = :id";
         $stmt = $dbh->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();

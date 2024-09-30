@@ -124,7 +124,7 @@ function getAllGenre() {
     return $results;
 }
 
-//affiche tous les pegi pour chackbox
+//affiche tous les pegi pour checkbox
 function getAllPegi() {
     $dbh= dbconnect();
     $query = "SELECT * FROM pegi";
@@ -144,19 +144,19 @@ function deleteThisGame($game_titre) {
     $stmt-> execute();
 }
 
-//Afficher les jeux par utilisateurs
-function showGameByUser($id) {
-    $dbh = dbconnect();
-    $query = "SELECT * 
-        FROM game
-        JOIN users ON user_id = autor_id
-        WHERE autor_id = :id";
-    $stmt = $dbh->prepare($query);
-    $stmt->bindParam(':id', $id);
-    $stmt->execute();
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $results;
-}
+// //Afficher les jeux par utilisateurs
+// function showGameByUser($id) {
+//     $dbh = dbconnect();
+//     $query = "SELECT * 
+//         FROM game
+//         JOIN users ON user_id = autor_id
+//         WHERE autor_id = :id";
+//     $stmt = $dbh->prepare($query);
+//     $stmt->bindParam(':id', $id);
+//     $stmt->execute();
+//     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//     return $results;
+// }
 
 // //afficher les jeux par id
 // function showGameByid($id) {
@@ -188,20 +188,20 @@ function addCommentIntoBdd($comment, $tableInt_autor_id, $tableInt_comment_id) {
         return $idComment;
 }
 
-//récupère les commentaire pour les afficher
-function getComments($id) {
-    $dbh = dbconnect();
-    $query = "SELECT * 
-        FROM game
-        JOIN user_comment ON game_id = tableInt_comment_id
-        join users ON user_id = tableInt_autor_id
-        WHERE game.game_id = :id";
-    $stmt = $dbh->prepare($query);
-    $stmt->bindParam(':id', $id);
-    $stmt->execute();
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $results;
-}
+// //récupère les commentaire pour les afficher
+// function getComments($id) {
+//     $dbh = dbconnect();
+//     $query = "SELECT * 
+//         FROM game
+//         JOIN user_comment ON game_id = tableInt_comment_id
+//         join users ON user_id = tableInt_autor_id
+//         WHERE game.game_id = :id";
+//     $stmt = $dbh->prepare($query);
+//     $stmt->bindParam(':id', $id);
+//     $stmt->execute();
+//     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//     return $results;
+// }
 
 //supprimer les commentaires
 function deleteComment($id){
