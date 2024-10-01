@@ -5,7 +5,7 @@ require_once 'partials/header.php';
 
 if(isset($_POST)&& !empty($_POST)) {
     $pseudo = $_POST['pseudo'];
-    $password = $_POST['password'];
+    $password = $_POST['password'];   
     $user = UsersManager::connectUser($pseudo);
     // $user = $user[0]; 
         if($user) {

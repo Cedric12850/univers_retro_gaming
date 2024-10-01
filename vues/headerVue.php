@@ -58,17 +58,17 @@ require_once 'partials/header.php';
 
 <main class="container">
     <div>  
-        <h4>Bienvenue <?php echo ucfirst($user->getPseudo()) ?> sur le site:</h4>
+        <h4>Bienvenue <?php echo ucfirst($user) ?> sur le site:</h4>
         <h1>UNIVERS RETRO-GAMING</h1> 
     </div>
-    <?php if($user != 'visiteur') { ?>    
+    <?php if($user != 'visiteur') { ?>   
         <div>
             <nav></nav>
                 <ul id="slide-out" class="sidenav">
                         
                     <li>
                         <div class="user-view">
-                            <h3><?php echo ucfirst($user->getPseudo()) ?></h3>
+                            <h3><?php echo ucfirst($user) ?></h3>
                             <a href="#mon_compte">Mon compte</a>
                             <?php if($user == 'super admin') { ?>
                                 <li><a href="admin.php">Page administrateur</li></a>

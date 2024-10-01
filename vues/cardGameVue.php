@@ -49,7 +49,6 @@ require_once 'partials/header.php';
         
             <?php foreach($getComments as $getComment) {
                 $pseudoComment = UserCommentManager::getPseudoComment($getComment->getTableIntAutorId());
-                var_dump($pseudoComment)
                 ?>
                 
                 <div id="userComment">
